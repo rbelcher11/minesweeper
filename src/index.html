@@ -1,18 +1,17 @@
+<html lang="en-US">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">
-    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <div id="tipBox">
       <div id="tipText">Easy Mode</div>
       <table id="cheatTable">
         <tr>
-          <td><button id="winner" class="cheat" onClick="winGame();revealAll();">Win Game!</button></td>
-          <td><button id="loser" class="cheat" onClick="loseGame();revealAll();">Lose Game!</button></td>
+          <td><button id="winner" class="cheat">Win Game!</button></td>
+          <td><button id="loser" class="cheat">Lose Game!</button></td>
         </tr>
         <tr>
-          <td><button id="easy_mode_button" class="mode" onClick="easyMode();">Easy Mode</button></td>
-          <td><button id="hard_mode_button" class="mode" onClick="hardMode();">Hard Mode</button></td>
+          <td><button id="easy_mode_button" class="mode">Easy Mode</button></td>
+          <td><button id="hard_mode_button" class="mode">Hard Mode</button></td>
         </tr>
       </table>
     </div>
@@ -25,7 +24,7 @@
             <div class="digit_container"><img id="mine_digit_three"  src="https://image.ibb.co/hx43vq/DIGITZERO.png" width="91%" height="91%"></div>
   <!--            <img src="https://image.ibb.co/hx43vq/DIGITZERO.png">
               <img src="https://image.ibb.co/hx43vq/DIGITZERO.png" alt=""> -->
-             <button id="smiley" onclick='resetSmile();resetGame();'></button>
+             <button id="smiley"></button>
           </div>
           <div class="timer">
             <div class="digit_container left_digit"><img id="timer_digit_one" src="https://image.ibb.co/hx43vq/DIGITZERO.png" width="91%" height="91%"></div>
@@ -550,5 +549,6 @@
         </div>
       </div>
     </div>
-    <script src="minesweeper.js"></script>
+    <script src="index.js"></script>
   </body>
+</html>
