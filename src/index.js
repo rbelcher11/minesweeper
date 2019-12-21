@@ -640,3 +640,17 @@ document.querySelector("#tipText").addEventListener("contextmenu", checkFlags)
 
 // document.querySelector("#tipBox").textContent = t + " my variable";
 
+document.getElementById('hard_mode_button').addEventListener('click', hardMode);
+document.getElementById('easy_mode_button').addEventListener('click', easyMode);
+document.getElementById('winner').addEventListener('click', function(){
+  winGame();
+  revealAll();
+});
+document.getElementById('loser').addEventListener('click', function(){
+  loseGame();
+  revealAll();
+});
+document.getElementById('smiley').addEventListener('click', function(){
+  resetSmile();
+  resetGame();
+});

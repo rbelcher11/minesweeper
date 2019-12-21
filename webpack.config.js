@@ -11,11 +11,7 @@ const sourcePath = path.resolve(__dirname, './src');
 
 const mainConfig = (env, argv) => {
 
-    const config = {
-
-    };
-
-    const devtool = argv.mode === 'production' ? 'none' : 'cheap-source-map';
+    const devtool = argv.mode === 'production' ? 'none' : 'source-map';
 
     return {
         mode: argv.mode,
@@ -33,7 +29,7 @@ const mainConfig = (env, argv) => {
         module: {
             rules: [{
                 exclude: /node_modules/,
-                test: /\.ts(|x)?$/,
+                test: /\.js(|x)?$/,
                 use: [{
                     loader: 'babel-loader',
                     options: {
@@ -73,15 +69,7 @@ const mainConfig = (env, argv) => {
             pathinfo: false
         },
         plugins: [
-            new BundleAnalyzerPlugin({
-                analyzerMode: (argv.mode !== 'production') ? 'server' : 'disabled'
-            }),
             new CleanWebpackPlugin(),
-            new webpack.DefinePlugin({
-                environment: JSON.stringify({
-                    ...config
-                }),
-            }),
             new HtmlWebpackPlugin({
                 template: 'index.html'
             }),
