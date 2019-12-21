@@ -16,6 +16,7 @@ const mainConfig = (env, argv) => {
     return {
         mode: argv.mode,
         context: sourcePath,
+        
         devtool,
         devServer: {
             historyApiFallback: true,

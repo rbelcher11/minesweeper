@@ -25,17 +25,19 @@ var difficulty = "easy";
 // https://image.ibb.co/gHicXf/WRONGMINE.png
 
 //This disables the right click context menu.
-document.oncontextmenu = function() {
+document.oncontextmenu = () => {
     return false;
-}
+};
 
 adjustMineCounter();
 rightClickHandler();
 leftClickHandler();
 
+hardMode();
+
 //This checks if you are left clicking on a box, revealing the "afraid" face for the duration.
 function isBox() {  
-  for(i=0;i<box.length;i++) {
+  for(let i=0;i<box.length;i++) {
   box[i].onmousedown = function(e) { 
        if (e.which===1&&!firstBox&&!this.classList.contains("flagged")) {              
          document.getElementById("smiley").style.backgroundImage = 'url("https://image.ibb.co/fuu71J/Smiley02.png")';
@@ -54,7 +56,7 @@ document.getElementById("minesweeper").onmousedown = function(event) {
 
 //This passes on the values of the box that is right clicked.
 function rightClickHandler() {
-  for(i=0;i<485;i++) {
+  for(let i =0;i<485;i++) {
     button[i].addEventListener("contextmenu", function() {
       if (this.classList.contains("box")) {
       rightClickBox(this);
@@ -64,9 +66,9 @@ function rightClickHandler() {
 }
 
 function leftClickHandler() {
-  for(i=0;i<485;i++) {
+  for(let i =0;i<485;i++) {
     button[i].addEventListener("click", function(e) {
-      for(j=0;j<box.length;j++) {
+      for(let j =0;j<box.length;j++) {
         if (this===box[j]) {
           selectBox(j);
         }
@@ -117,7 +119,7 @@ function rightClickBox(x) {
 
 //This resets the board without refreshing the page.
 function resetGame() {
-  for (z=0;z<box.length;z++) {
+  for (let z=0;z<box.length;z++) {
     box[z].classList.remove('boxAfter');
     box[z].classList.remove('flagged')
     box[z].classList.remove('question_mark')    
@@ -138,7 +140,7 @@ function resetGame() {
 
 //This systematically reveals each square individually.
 function revealAll() {
-  for (n=0;n<box.length;n++) {
+  for (let n=0;n<box.length;n++) {
     box[n].classList.add('boxAfter');
   }
 }
@@ -184,7 +186,7 @@ function createMinefield(y) {
 function makeMineArray(x) {
   mineArray = [];
   mineArray.push(x);
-  for(i=0;i<mineCount;i++) {
+  for(let i =0;i<mineCount;i++) {
     var n = Math.floor(Math.random() * minefield.length);
     if (mineArray.findIndex(function(e){return e===n})>=0) {
       i--
@@ -198,7 +200,7 @@ function makeMineArray(x) {
 
 //This is executed with selectBox() and will check if they have clicked a mine square.
 function checkForMine(y) {
-  for(i=0;i<mineArray.length;i++) {
+  for(let i =0;i<mineArray.length;i++) {
     if (y===mineArray[i]) {
       loseGame(y);
       revealAll();
@@ -256,7 +258,7 @@ function filterEmpty(z) {
 
 function removeDuplicates() {
   emptyArray.sort((a, b) => a - b);
-  for(i=0;i<emptyArray.length-1;i++) {
+  for(let i =0;i<emptyArray.length-1;i++) {
     if (emptyArray[i]===emptyArray[i+1]) {
       emptyArray.splice(i, 1);
       i=-1;
@@ -306,19 +308,19 @@ function createMineLog(chosenArray) {
   mineLog = [];
   var a = [];
   var b = [];
-  for(i=0;i<box.length;i++) {
+  for(let i =0;i<box.length;i++) {
     a.push(false);
   }
-  for(i=0;i<chosenArray.length;i++) {
-    for(j=0;j<a.length;j++) {
+  for(let i =0;i<chosenArray.length;i++) {
+    for(let j =0;j<a.length;j++) {
       if (chosenArray[i]===j) {
         a.splice(j, 1, true);
       }
     }
   }
-  for(i=0;i<rowLength;i++) {
+  for(let i =0;i<rowLength;i++) {
     b = [];
-    for(j=0;j<rowLength;j++) {
+    for(let j =0;j<rowLength;j++) {
       b.push(a[0])
       a.shift();
     }
@@ -332,17 +334,17 @@ function makeNumbers(m) {
   let v = 0;
   let x = m[0].length;
   let y = m.length;
-  for (i=0;i<y;i++) {
-    for (j=0;j<x;j++) {
+  for (let i=0;i<y;i++) {
+    for (let j=0;j<x;j++) {
       c.push(0)
       }
       a.push(c)
     c=[]
   }
-  for (i=0;i<y;i++) {
-    for(j=0;j<x;j++) {
-      for(k=i-1;k<i+2;k++) {
-        for(l=j-1;l<j+2;l++) {
+  for (let i=0;i<y;i++) {
+    for(let j =0;j<x;j++) {
+      for(let k=i-1;k<i+2;k++) {
+        for(let l=j-1;l<j+2;l++) {
           if (k<0||l<0||k>y-1||l>x-1||(l===j&&k===i)) {
             v++
           } else if (m[k][l]) {
@@ -356,7 +358,7 @@ function makeNumbers(m) {
 }
 
 function changeToMine() {
-  for(i=0;i<mineArray.length;i++) {
+  for(let i =0;i<mineArray.length;i++) {
     var w = mineArray[i]/rowLength;
     var x = Math.floor(w);
     var y = Math.floor((w-x) * (rowLength+1));
@@ -365,7 +367,7 @@ function changeToMine() {
 }
 
 function assignValues() {
-  for(i=0;i<minefield.length;i++) {
+  for(let i =0;i<minefield.length;i++) {
     var w = i/rowLength;
     var x = Math.floor(w);
     var y = Math.floor((w-x) * (rowLength+1));
@@ -541,7 +543,7 @@ function easyMode() {
   mineCount = 10;
   winCount = 71;
   difficulty = "easy";
-  for (i=0;i<484;i++) {
+  for (let i=0;i<484;i++) {
     if (button[i+1].classList.contains("hard_box")) {
       button[i+1].classList.remove("box")
       button[i+1].classList.remove("flagged")
@@ -550,7 +552,7 @@ function easyMode() {
       tableData[i].classList.remove("minefield");
     }
   }
-  for(i=0;i<18;i++) {
+  for(let i =0;i<18;i++) {
     if (document.querySelectorAll("tr")[i].classList.contains("hard_row")) {
       document.querySelectorAll("tr")[i].classList.remove("mine_row");
     }
@@ -567,7 +569,7 @@ function hardMode() {
   winCount = 381;
   difficulty = "hard";
   resetGame();
-  for (i=1;i<484;i++) {
+  for (let i=1;i<484;i++) {
     if (button[i+1].classList.contains("hard_box")) {
           button[i+1].classList.add("box");
         }
@@ -575,7 +577,7 @@ function hardMode() {
       tableData[i].classList.add("minefield");
     }
   }
-  for(i=0;i<18;i++) {
+  for(let i =0;i<18;i++) {
     if (document.querySelectorAll("tr")[i].classList.contains("hard_row")) {
       document.querySelectorAll("tr")[i].classList.add("mine_row");
     }
@@ -606,10 +608,10 @@ function makeHardBoard() {
 }
 
 function checkFlags() {
-  for(i=0;i<box.length;i++) {
+  for(let i =0;i<box.length;i++) {
     var p = false;
     if (box[i].classList.contains("flagged")) {
-      for(j=0;j<mineCount;j++) {
+      for(let j =0;j<mineCount;j++) {
           if (i===mineArray[j]) {
             box[i].classList.add("boxAfter");
             minefield[i].style.backgroundImage = 'url("https://image.ibb.co/gHicXf/WRONGMINE.png")';
