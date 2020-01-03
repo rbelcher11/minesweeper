@@ -29,14 +29,14 @@ body, html {
   }
   
   .box.flagged, .box.hard_box.flagged {
-    background-image: url("https://image.ibb.co/k3SNBL/flag.png");
+    background-image: url("images/flag.png");
     background-repeat: no-repeat;
     background-size: 90%;
     background-position: center;
   }
   
   .box.question_mark, .box.hard_box.question_mark {
-    background-image: url("https://image.ibb.co/jRUfJ0/questionmark.png");
+    background-image: url("images/questionmark.png");
     background-repeat: no-repeat;
     background-size: 50%;
     background-position: center; 
@@ -132,7 +132,6 @@ body, html {
   .sweepBoard {
     height: 490px;
     width: 99%;
-  /*   background-image: url("https://image.ibb.co/dToqYL/81GRID.png");  */
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: center;
@@ -175,8 +174,7 @@ body, html {
     height: 625px;
     width: 495px; 
     background: #CCCCCC;
-     padding: 20px;
-  /*   border: 20px solid #CCCCCC; */
+    padding: 20px;
     margin-left: -1px;
   }
   
@@ -258,7 +256,7 @@ body, html {
     border-right: 5px solid #777777;
     border-bottom: 5px solid #777777;
     background: #CCCCCC;
-    background-image: url("https://image.ibb.co/dzwy8y/smiley01.png");
+    background-image: url("images/smiley01.png");
     background-size: 94%;
     background-repeat: no-repeat;
     background-position: center;
