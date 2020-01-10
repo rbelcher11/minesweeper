@@ -22,7 +22,6 @@ var firstBox = true;
 var fieldOfMines = [];
 var test = 0;
 var difficulty = "easy";
-// https://image.ibb.co/gHicXf/WRONGMINE.png
 
 //This disables the right click context menu.
 document.oncontextmenu = () => {
@@ -40,9 +39,8 @@ function isBox() {
   for(let i=0;i<box.length;i++) {
   box[i].onmousedown = function(e) { 
        if (e.which===1&&!firstBox&&!this.classList.contains("flagged")) {              
-         document.getElementById("smiley").style.backgroundImage = 'url("https://image.ibb.co/fuu71J/Smiley02.png")';
+         document.getElementById("smiley").style.backgroundImage = 'url("images/smiley02.png")';
         } else if (e.which===3) {
-          // document.body.style.backgroundColor = "green";
         }
       }
     }
@@ -84,10 +82,10 @@ function selectBox(x) {
     firstBox = false;
     countSeconds();
   }
-  smileyId.style.backgroundImage = 'url("https://image.ibb.co/dzwy8y/smiley01.png")';
+  smileyId.style.backgroundImage = 'url("images/smiley01.png")';
   if (!box[x].classList.contains("flagged")) {
     revealSelectedBox(x);
-    smileyId.style.backgroundImage = 'url("https://image.ibb.co/dzwy8y/smiley01.png")';
+    smileyId.style.backgroundImage = 'url("images/smiley01.png")';
     checkForMine(x);
     checkForEmpty(x);
   }
@@ -151,7 +149,7 @@ function loseGame() {
     resetGame();
     createMinefield(Math.floor(Math.random() * box.length));
   }
-  smileyId.style.backgroundImage = 'url("https://image.ibb.co/gyxiad/Smiley04.png")';
+  smileyId.style.backgroundImage = 'url("images/smiley04.png")';
   gameOver = true;
   document.querySelector("#tipText").textContent = "Game Over!";
   checkFlags();
@@ -163,14 +161,14 @@ function winGame() {
     resetGame();
     createMinefield(Math.floor(Math.random() * box.length));
   }
-  smileyId.style.backgroundImage = 'url("https://image.ibb.co/bwFrTy/Smiley03.png")';
+  smileyId.style.backgroundImage = 'url("images/smiley03.png")';
   gameOver = true;
   document.querySelector("#tipText").textContent = "You Win!";
  }
 
 //This sets the smiley back to default, along with the mine counter.
 function resetSmile() {
-  smileyId.style.backgroundImage = 'url("https://image.ibb.co/dzwy8y/smiley01.png")';
+  smileyId.style.backgroundImage = 'url("images/smiley01.png")';
 }
 
 // This decides which boxes will have mines, executed after the firstBox is decided, then creates the array
@@ -204,7 +202,7 @@ function checkForMine(y) {
     if (y===mineArray[i]) {
       loseGame(y);
       revealAll();
-      minefield[y].style.backgroundImage = 'url("https://image.ibb.co/iJW4Qf/mineblew.png")';
+      minefield[y].style.backgroundImage = 'url("images/mineblew.png")';
       minefield[y].style.backgroundColor = 'red';
       gameOver = true;
       // checkFlags();
@@ -254,7 +252,7 @@ function filterEmpty(z) {
     emptyArray.push(z)
   }
   
-}
+} 
 
 function removeDuplicates() {
   emptyArray.sort((a, b) => a - b);
@@ -374,34 +372,34 @@ function assignValues() {
     minefield[i].style.backgroundRepeat = "no-repeat";
     minefield[i].style.backgroundPosition = "center";
     if (fieldOfMines[x][y]==="x") {
-      minefield[i].style.backgroundImage = 'url("https://image.ibb.co/eLA9rL/minebomb.png")';
+      minefield[i].style.backgroundImage = 'url("images/minebomb.png")';
       minefield[i].style.backgroundSize = "80%";
     } else if (fieldOfMines[x][y]===1) {
-      minefield[i].style.backgroundImage = 'url("https://image.ibb.co/gBCB5f/mine1.png")';
+      minefield[i].style.backgroundImage = 'url("images/mine1.png")';
       minefield[i].style.backgroundSize = "80%";
     } else if (fieldOfMines[x][y]===2) {
-      minefield[i].style.backgroundImage = 'url("https://image.ibb.co/m6xNBL/mine2.png")';
+      minefield[i].style.backgroundImage = 'url("images/mine2.png")';
       minefield[i].style.backgroundSize = "80%";
     } else if (fieldOfMines[x][y]===3) {
-      minefield[i].style.backgroundImage = 'url("https://image.ibb.co/hWghBL/mine3.png")';
+      minefield[i].style.backgroundImage = 'url("images/mine3.png")';
       minefield[i].style.backgroundSize = "80%";
     } else if (fieldOfMines[x][y]===4) {
-      minefield[i].style.backgroundImage = 'url("https://image.ibb.co/nHxdkf/mine4.png")';
+      minefield[i].style.backgroundImage = 'url("images/mine4.png")';
       minefield[i].style.backgroundSize = "80%";
     } else if (fieldOfMines[x][y]===5) {
-      minefield[i].style.backgroundImage = 'url("https://image.ibb.co/km7BiL/FIVENUMBER.png")';
+      minefield[i].style.backgroundImage = 'url("images/mine5.png")';
       minefield[i].style.backgroundSize = "80%";
     } else if (fieldOfMines[x][y]===6) {
-      minefield[i].style.backgroundImage = 'url("https://image.ibb.co/i0QaA0/SIXNUMBER.png")';
+      minefield[i].style.backgroundImage = 'url("images/mine6.png")';
       minefield[i].style.backgroundSize = "80%";
     } else if (fieldOfMines[x][y]===7) {
-      minefield[i].style.backgroundImage = 'url("https://image.ibb.co/fuSBiL/SEVENNUMBER.png")';
+      minefield[i].style.backgroundImage = 'url("images/mine7.png")';
       minefield[i].style.backgroundSize = "80%";
     } else if (fieldOfMines[x][y]===8) {
-      minefield[i].style.backgroundImage = 'url("https://image.ibb.co/hpQLcf/EIGHTNUMBER.png")';
+      minefield[i].style.backgroundImage = 'url("images/mine8.png")';
       minefield[i].style.backgroundSize = "80%";
     } else if (fieldOfMines[x][y]===0) {
-      minefield[i].style.backgroundImage ='url("https://image.ibb.co/n4kq00/EMPTY-SPACE.png")';
+      minefield[i].style.backgroundImage ='url("images/emptyspace.png")';
       minefield[i].classList.add("empty_space");
       minefield[i].style.backgroundSize = "50%";
     }
@@ -480,27 +478,27 @@ function adjustMineCounter() {
 
 function assignDigit(x, y) {
   if (x===0) {
-    y.src = "https://image.ibb.co/hx43vq/DIGITZERO.png";
+    y.src = "images/digit0.png";
   } else if (x===1) {
-    y.src = "https://image.ibb.co/f30XoA/DIGITONE.png";
+    y.src = "images/digit1.png";
   } else if (x===2) {
-    y.src = "https://image.ibb.co/iK0nMV/DIGITTWO.png";
+    y.src = "images/digit2.png";
   } else if (x===3) {
-    y.src = "https://image.ibb.co/dYjsoA/DIGITTHREE.png";
+    y.src = "images/digit3.png";
   } else if (x===4) {
-    y.src = "https://image.ibb.co/dDRSMV/DIGITFOUR.png";
+    y.src = "images/digit4.png";
   } else if (x===5) {
-    y.src = "https://image.ibb.co/mRiVaq/DIGITFIVE.png";
+    y.src = "images/digit5.png";
   } else if (x===6) {
-    y.src = "https://image.ibb.co/joK3vq/DIGITSIX.png";
+    y.src = "images/digit6.png";
   } else if (x===7) {
-    y.src = "https://image.ibb.co/kxzQ8A/DIGITSEVEN.png";
+    y.src = "images/digit7.png";
   } else if (x===8) {
-    y.src = "https://image.ibb.co/b1VnMV/DIGITEIGHT.png";
+    y.src = "images/digit8.png";
   } else if (x===9) {
-    y.src = "https://image.ibb.co/cCU3vq/DIGITNINE.png";
+    y.src = "images/digit9.png";
   } else if (x==="-") {
-    y.src = "https://image.ibb.co/gtEQ8A/MINUS.png";
+    y.src = "images/digitminus.png";
   } 
 }
 
@@ -614,7 +612,7 @@ function checkFlags() {
       for(let j =0;j<mineCount;j++) {
           if (i===mineArray[j]) {
             box[i].classList.add("boxAfter");
-            minefield[i].style.backgroundImage = 'url("https://image.ibb.co/gHicXf/WRONGMINE.png")';
+            minefield[i].style.backgroundImage = 'url("images/minewrong.png")';
           }
           }
       }
@@ -628,19 +626,7 @@ document.querySelector("#tipText").addEventListener("click", function(){
   document.querySelector("#tipText").textContent = mineArray;
 })
 
-// document.querySelector("#tipText").addEventListener("contextmenu", function(){
-//   document.querySelector("#tipText").textContent = mineLog;
-// })
-
 document.querySelector("#tipText").addEventListener("contextmenu", checkFlags)
-
-// document.querySelector("#tipBox").addEventListener("click", function(){
-//   document.querySelector("#mine_digit_one").src = "https://image.ibb.co/iK0nMV/DIGITTWO.png";})
-
-// document.querySelector("#tipBox").addEventListener("contextmenu", function(){
-//   document.querySelector("#tipBox").textContent = localStorage.getItem('startDate');})
-
-// document.querySelector("#tipBox").textContent = t + " my variable";
 
 document.getElementById('hard_mode_button').addEventListener('click', hardMode);
 document.getElementById('easy_mode_button').addEventListener('click', easyMode);
