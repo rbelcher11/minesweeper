@@ -39,7 +39,7 @@ function isBox() {
   for(let i=0;i<box.length;i++) {
   box[i].onmousedown = function(e) { 
        if (e.which===1&&!firstBox&&!this.classList.contains("flagged")) {              
-         document.getElementById("smiley").style.backgroundImage = 'url("images/smiley02.png")';
+         document.getElementById("smiley").style.backgroundImage = 'url("images/smiley2.png")';
         } else if (e.which===3) {
         }
       }
@@ -82,10 +82,10 @@ function selectBox(x) {
     firstBox = false;
     countSeconds();
   }
-  smileyId.style.backgroundImage = 'url("images/smiley01.png")';
+  smileyId.style.backgroundImage = 'url("images/smiley1.png")';
   if (!box[x].classList.contains("flagged")) {
     revealSelectedBox(x);
-    smileyId.style.backgroundImage = 'url("images/smiley01.png")';
+    smileyId.style.backgroundImage = 'url("images/smiley1.png")';
     checkForMine(x);
     checkForEmpty(x);
   }
@@ -149,7 +149,7 @@ function loseGame() {
     resetGame();
     createMinefield(Math.floor(Math.random() * box.length));
   }
-  smileyId.style.backgroundImage = 'url("images/smiley04.png")';
+  smileyId.style.backgroundImage = 'url("images/smiley4.png")';
   gameOver = true;
   document.querySelector("#tipText").textContent = "Game Over!";
   checkFlags();
@@ -161,14 +161,14 @@ function winGame() {
     resetGame();
     createMinefield(Math.floor(Math.random() * box.length));
   }
-  smileyId.style.backgroundImage = 'url("images/smiley03.png")';
+  smileyId.style.backgroundImage = 'url("images/smiley3.png")';
   gameOver = true;
   document.querySelector("#tipText").textContent = "You Win!";
  }
 
 //This sets the smiley back to default, along with the mine counter.
 function resetSmile() {
-  smileyId.style.backgroundImage = 'url("images/smiley01.png")';
+  smileyId.style.backgroundImage = 'url("images/smiley1.png")';
 }
 
 // This decides which boxes will have mines, executed after the firstBox is decided, then creates the array

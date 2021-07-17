@@ -1,7 +1,12 @@
 body, html {
-    background: #0000FF;
-    position: absolute;
+    display: block;
   }
+
+body {
+  background: #0000FF;
+  height: 100%;
+  width: 100%;
+}
   
   button:focus, input:focus {
     outline:0;
@@ -85,7 +90,7 @@ body, html {
   #minesweeper {
     margin-top: 75px;
     margin-left: 762.5px;
-    width: 534px;
+    width: 532px;
     height: 665px;
     border-top: 5px solid #777777;
     border-right: 5px solid #EEEEEE;
@@ -143,7 +148,7 @@ body, html {
   }
   
   .sweepBoard.hard_sweep_board {
-    height: 8px; 
+    height: 851px; 
     width: 1621px;
   }
   
@@ -179,8 +184,8 @@ body, html {
   }
   
   .boardBox.hard_board_box {
-    height: 1005px;
-    width: 1634px;
+    height: 1006px;
+    width: 1635px;
   }
   
   .scoreKeeper {
@@ -256,7 +261,7 @@ body, html {
     border-right: 5px solid #777777;
     border-bottom: 5px solid #777777;
     background: #CCCCCC;
-    background-image: url("images/smiley01.png");
+    background-image: url("images/smiley1.png");
     background-size: 94%;
     background-repeat: no-repeat;
     background-position: center;
