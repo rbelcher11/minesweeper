@@ -32,6 +32,6 @@
   },
   "dependencies": {
     "core-js": "^3.6.0",
-    "minimist": "^1.2.5"
+    "minimist": "^1.2.6"
   }
 }
